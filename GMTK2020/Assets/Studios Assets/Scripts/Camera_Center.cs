@@ -7,11 +7,12 @@ public class Camera_Center : MonoBehaviour
   
     //--- Public Variables ---///
     //Change with appropriate script
-    public Temp_Room[] rooms;
+    public Room[] rooms;
 
     public Vector3 cameraOffset = new Vector3(0.0f,0.0f,0.0f);
     public Vector3 baseCameraPos = new Vector3 (2.5f,0.0f,-10.0f);
     public int baseCameraSize = 5;
+    public float cameraIncreaseAmount = 1.0f;
 
     public Transform ship;
 
@@ -37,31 +38,33 @@ public class Camera_Center : MonoBehaviour
 
 
     //call this whenever a new room is attached
-    void AdjustCamera()
+    public void AdjustCamera()
     {
         //Reset Camera
         cameraOffset = new Vector3(2.5f, 0.0f, 0.0f);
         //Finds all the rooms in the scene
         //---Change with the right script
         //Then need to check if they are attached
-        rooms = FindObjectsOfType<Temp_Room>();
+        rooms = FindObjectsOfType<Room>();
+        int numAttached = 0;
 
         //Loops through all of the attached rooms and finds the center of mass
         //Adds them all their local positions and averages
         for (int i = 0; i <= rooms.Length - 1; i++)
         {
-            if (rooms[i].isAttached)
+            if (rooms[i].IsAttached)
             {
-                cameraOffset += rooms[i].GetComponent<Transform>().position;
+                cameraOffset += rooms[i].GetComponent<Transform>().localPosition;
+                numAttached++;
             }
         }
-        cameraOffset /= rooms.Length;
+        cameraOffset /= (float)numAttached;
 
         //Add the base cameraoffset
         cameraOffset += baseCameraPos;
         
         //This will change the zoom of the camera, might be an easier way but oh well
-        this.GetComponent<Camera>().orthographicSize = rooms.Length + baseCameraSize;
+        this.GetComponent<Camera>().orthographicSize = (cameraIncreaseAmount * numAttached) + baseCameraSize;
     }
 
 

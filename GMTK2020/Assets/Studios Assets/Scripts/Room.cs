@@ -24,6 +24,7 @@ public class Room : MonoBehaviour
 
     //--- Private Variables ---//
     private bool m_isOccupied;
+    private bool m_isAttached;
 
 
 
@@ -39,6 +40,7 @@ public class Room : MonoBehaviour
     {
         // Init the private variables
         m_isOccupied = false;
+        m_isAttached = false;
     }
 
     private void Update()
@@ -73,6 +75,9 @@ public class Room : MonoBehaviour
 
         // Hide the blocker since it is no longer in space
         m_roomBlocker.SetActive(false);
+
+        // The room is now attached
+        m_isAttached = true;
     }
 
 
@@ -92,5 +97,11 @@ public class Room : MonoBehaviour
     {
         get => m_interactPrompt; 
         set => m_interactPrompt = value;
+    }
+
+    public bool IsAttached
+    {
+        get => m_isAttached;
+        set => m_isAttached = value;
     }
 }

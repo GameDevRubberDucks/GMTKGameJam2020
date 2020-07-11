@@ -7,6 +7,7 @@ public class Ship_GridManager : MonoBehaviour
     public GameObject m_startRoom;
     public float m_roomWorldSize;
     public Transform m_roomParent;
+    public Camera_Center m_cameraCenter;
 
 
 
@@ -53,6 +54,9 @@ public class Ship_GridManager : MonoBehaviour
         // Open the required doors for the new room and its neighbours
         // Also, set up the links within the nodes themselves
         LinkNeighbouringRooms(newNode);
+
+        // Update the camera
+        m_cameraCenter.AdjustCamera();
     }
 
 
