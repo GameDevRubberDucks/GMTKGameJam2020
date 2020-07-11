@@ -9,12 +9,15 @@ public class Ship_GridManager : MonoBehaviour
     public Transform m_roomParent;
     public Camera_Center m_cameraCenter;
     public GameObject m_thruster;
+    public GameObject m_gun;
 
 
 
     //--- Private Variables ---//
     private Dictionary<Vector2, Room_Node> m_roomGrid;
     private Room_Node m_lastThrusterAttachment;
+    private Room_Node m_lastGunAttachment;
+    private bool m_hasGun;
 
 
 
@@ -23,6 +26,8 @@ public class Ship_GridManager : MonoBehaviour
     {
         // Initialize the private variables
         m_lastThrusterAttachment = null;
+        m_lastGunAttachment = null;
+        m_hasGun = false;
 
         // Initialize the room grid with the starting room
         m_roomGrid = new Dictionary<Vector2, Room_Node>();
@@ -64,6 +69,9 @@ public class Ship_GridManager : MonoBehaviour
 
         // Place the thruster along the ship
         PlaceThruster();
+
+        // Optionally place the gun
+        PlaceGun(newNode);
     }
 
 
@@ -187,9 +195,51 @@ public class Ship_GridManager : MonoBehaviour
         m_thruster.transform.localPosition = thrusterLocalPos;
     }
 
-    private Vector2 DetermineGunPosition()
+    private void PlaceGun(Room_Node _newRoom)
     {
-        return Vector2.zero;
+        // If the player doesn't already have the gun, we should see if the new room is the gun
+        if (!m_hasGun)
+        {
+            var gunScript = _newRoom.m_roomObj.GetComponent<Room_Boom>();
+
+            if (gunScript != null)
+            {
+                m_hasGun = true;
+                m_gun.SetActive(true);
+            }
+        }
+
+        // If the player has the gun (either from before or just got it now), we should update its placement if needed
+        // Find the right-most x position currently occupied in the grid
+        float rightmostX = -Mathf.Infinity;
+        foreach (var roomNode in m_roomGrid.Values)
+            rightmostX = Mathf.Max(rightmostX, roomNode.m_gridLoc.x);
+
+        // Determine all of the nodes that are at that x position
+        List<Room_Node> eligibleNodes = new List<Room_Node>();
+        foreach (var roomNode in m_roomGrid.Values)
+        {
+            if (roomNode.m_gridLoc.x == rightmostX)
+                eligibleNodes.Add(roomNode);
+        }
+
+        // If the gun's current attached node is in that list, then there is no need to move
+        if (eligibleNodes.Contains(m_lastGunAttachment))
+            return;
+
+        // Randomly select one of them
+        var randomNodeIdx = Random.Range(0, eligibleNodes.Count);
+        Room_Node selectedNode = eligibleNodes[randomNodeIdx];
+        m_lastGunAttachment = selectedNode;
+
+        // Determine the grid location of the selected node's right neighbour
+        Vector2 gunGridPos = selectedNode.GetNeighbourCoord(Room_AttachPoint.Right);
+
+        // Scale to world space
+        Vector2 gunLocalPos = gunGridPos * m_roomWorldSize;
+
+        // Move the gun object
+        m_gun.transform.localPosition = gunLocalPos;
     }
 
 
