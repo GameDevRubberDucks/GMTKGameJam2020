@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Camera_Center : MonoBehaviour
 {
-    // Start is called before the first frame update
-
+  
+    //--- Public Variables ---///
     //Change with appropriate script
     public Temp_Room[] rooms;
-    public Temp_Room[] roomsAttached;
 
     public Vector3 cameraOffset = new Vector3(0.0f,0.0f,0.0f);
     public Vector3 baseCameraPos = new Vector3 (2.5f,0.0f,-10.0f);
     public int baseCameraSize = 5;
 
+    public Transform ship;
 
+    // Start is called before the first frame update
     void Start()
     {
 
@@ -22,16 +23,16 @@ public class Camera_Center : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        //This will change the zoom of the camera, might be an easier way but oh well
-        this.GetComponent<Camera>().orthographicSize = rooms.Length + baseCameraSize;
 
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             AdjustCamera();
         }
+
+        CameraFollow();
     }
 
 
@@ -45,25 +46,30 @@ public class Camera_Center : MonoBehaviour
         //Then need to check if they are attached
         rooms = FindObjectsOfType<Temp_Room>();
 
-        //loops through all the rooms in the scene finds which ones are attached and places it into another list
-        //for (int x = 0; x <= rooms.Length - 1; x++)
-        //{
-        //    if (rooms[x].isAttached)
-        //        roomsAttached[x] = rooms[x];
-        //}
-
         //Loops through all of the attached rooms and finds the center of mass
         //Adds them all their local positions and averages
         for (int i = 0; i <= rooms.Length - 1; i++)
         {
-            cameraOffset += rooms[i].GetComponent<Transform>().position;
+            if (rooms[i].isAttached)
+            {
+                cameraOffset += rooms[i].GetComponent<Transform>().position;
+            }
         }
         cameraOffset /= rooms.Length;
 
         //Add the base cameraoffset
         cameraOffset += baseCameraPos;
+        
+        //This will change the zoom of the camera, might be an easier way but oh well
+        this.GetComponent<Camera>().orthographicSize = rooms.Length + baseCameraSize;
+    }
 
-        //Move the camera
-        this.transform.position = cameraOffset;
+
+    void CameraFollow()
+    {
+        //cameraoffset is the calculated offset from the rooms. BasecameraPos is the overall offset to the right
+        Vector3 desiredPosition = ship.position + cameraOffset + baseCameraPos;
+        Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredPosition, 0.125f);
+        this.transform.position = new Vector3 (smoothPosition.x,smoothPosition.y,-10.0f); //-10.0 because thats how it works
     }
 }
