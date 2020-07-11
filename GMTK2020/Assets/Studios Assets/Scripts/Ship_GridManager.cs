@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class Ship_RoomGridManager : MonoBehaviour
+public class Ship_GridManager : MonoBehaviour
 {
     //--- Public Variables ---//
     public GameObject m_startRoom;
@@ -140,6 +140,38 @@ public class Ship_RoomGridManager : MonoBehaviour
             _thisNode.m_roomScript.ToggleDoor(_thisDoor, true);
             _thisNode.m_neighbours[(int)_thisDoor] = neighbourRef;
         }
+    }
+
+    private void PlaceThruster(GameObject m_thruster)
+    {
+        // Find the left-most x position currently occupied in the grid
+        float leftmostX = Mathf.Infinity;
+        foreach (var roomNode in m_roomGrid.Values)
+            leftmostX = Mathf.Min(leftmostX, roomNode.m_gridLoc.x);
+
+        // Determine all of the nodes that are at that x position
+        List<Room_Node> eligibleNodes = new List<Room_Node>();
+        foreach(var roomNode in m_roomGrid.Values)
+        {
+            if (roomNode.m_gridLoc.x == leftmostX)
+                eligibleNodes.Add(roomNode);
+        }
+
+        // Randomly select one of them
+        var randomNodeIdx = Random.Range(0, eligibleNodes.Count);
+        Room_Node selectedNode = eligibleNodes[randomNodeIdx];
+
+        // Determine the grid location of the selected node's left neighbour
+        Vector2 thrusterGridPos = selectedNode.GetNeighbourCoord(Room_AttachPoint.Left);
+
+        // Scale to world space
+
+        // Move the thruster object
+    }
+
+    private Vector2 DetermineGunPosition()
+    {
+        return Vector2.zero;
     }
 
 
