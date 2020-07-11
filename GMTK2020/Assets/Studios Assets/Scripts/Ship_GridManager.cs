@@ -8,21 +8,25 @@ public class Ship_GridManager : MonoBehaviour
     public float m_roomWorldSize;
     public Transform m_roomParent;
     public Camera_Center m_cameraCenter;
+    public GameObject m_thruster;
 
 
 
     //--- Private Variables ---//
-    public Dictionary<Vector2, Room_Node> m_roomGrid;
+    private Dictionary<Vector2, Room_Node> m_roomGrid;
+    private Room_Node m_lastThrusterAttachment;
 
 
 
     //--- Unity Methods ---//
     private void Start()
     {
+        // Initialize the private variables
+        m_lastThrusterAttachment = null;
+
         // Initialize the room grid with the starting room
         m_roomGrid = new Dictionary<Vector2, Room_Node>();
         AddRoom(m_startRoom);
-        //m_roomGrid.Add(Vector2.zero, new Room_Node(Vector2.zero, m_startRoom));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -57,6 +61,9 @@ public class Ship_GridManager : MonoBehaviour
 
         // Update the camera
         m_cameraCenter.AdjustCamera();
+
+        // Place the thruster along the ship
+        PlaceThruster();
     }
 
 
@@ -146,7 +153,7 @@ public class Ship_GridManager : MonoBehaviour
         }
     }
 
-    private void PlaceThruster(GameObject m_thruster)
+    private void PlaceThruster()
     {
         // Find the left-most x position currently occupied in the grid
         float leftmostX = Mathf.Infinity;
@@ -161,16 +168,23 @@ public class Ship_GridManager : MonoBehaviour
                 eligibleNodes.Add(roomNode);
         }
 
+        // If the thruster's current attached node is in that list, then there is no need to move
+        if (eligibleNodes.Contains(m_lastThrusterAttachment))
+            return;
+
         // Randomly select one of them
         var randomNodeIdx = Random.Range(0, eligibleNodes.Count);
         Room_Node selectedNode = eligibleNodes[randomNodeIdx];
+        m_lastThrusterAttachment = selectedNode;
 
         // Determine the grid location of the selected node's left neighbour
         Vector2 thrusterGridPos = selectedNode.GetNeighbourCoord(Room_AttachPoint.Left);
 
         // Scale to world space
+        Vector2 thrusterLocalPos = thrusterGridPos * m_roomWorldSize;
 
         // Move the thruster object
+        m_thruster.transform.localPosition = thrusterLocalPos;
     }
 
     private Vector2 DetermineGunPosition()

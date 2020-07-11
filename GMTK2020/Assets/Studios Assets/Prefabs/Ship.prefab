@@ -638,6 +638,7 @@ MonoBehaviour:
   m_roomWorldSize: 16
   m_roomParent: {fileID: 1789521897646212105}
   m_cameraCenter: {fileID: 2008962965}
+  m_thruster: {fileID: 0}
 --- !u!50 &1789521897330937321
 Rigidbody2D:
   serializedVersion: 4
