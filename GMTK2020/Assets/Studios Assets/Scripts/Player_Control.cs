@@ -26,10 +26,10 @@ public class Player_Control : MonoBehaviour
         movement = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) / movementSpeed;
         
 
-       if (Input.GetAxis("Interact") > 0.0f)
-        {
-            Debug.Log(Input.GetAxis("Interact"));
-        }
+       //if (Input.GetAxis("Interact") > 0.0f)
+       // {
+       //     Debug.Log(Input.GetAxis("Interact"));
+       // }
     }
 
     private void FixedUpdate()

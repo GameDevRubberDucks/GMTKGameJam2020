@@ -3,6 +3,11 @@
 public class Room_Go : MonoBehaviour, IRoom_Interactable
 {
     //--- IRoom_Interactable Interface ---//
+    public void OnInteractionStart()
+    {
+        Debug.Log("InteractionStart()");
+    }
+
     public void OnInteraction()
     {
         Debug.Log("Interaction()");
@@ -11,5 +16,10 @@ public class Room_Go : MonoBehaviour, IRoom_Interactable
     public void OnInteractionEnd()
     {
         Debug.Log("InteractionEnd()");
+    }
+
+    public void OnNoInteraction()
+    {
+        Debug.Log("NoInteraction()");
     }
 }

@@ -12,6 +12,8 @@ public enum Room_AttachPoint
 
 public interface IRoom_Interactable
 {
+    void OnInteractionStart();
     void OnInteraction();
     void OnInteractionEnd();
+    void OnNoInteraction();
 }

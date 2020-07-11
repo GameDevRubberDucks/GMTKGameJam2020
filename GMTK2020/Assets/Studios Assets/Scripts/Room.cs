@@ -17,8 +17,10 @@ public class Room : MonoBehaviour
     [Header("This Room's Controls")]
     public Sprite m_roomSymbol;
     public string m_interactPrompt;
+    public UnityEvent m_onInteractStart;
     public UnityEvent m_onInteract;
     public UnityEvent m_onInteractEnd;
+    public UnityEvent m_onNoInteract;
 
 
 
@@ -49,10 +51,14 @@ public class Room : MonoBehaviour
         if (m_isOccupied)
         {
             // There are different interaction states to handle different key states
-            if (Input.GetKey(m_interactKey))
+            if (Input.GetKeyDown(m_interactKey))
+                m_onInteractStart.Invoke();
+            else if (Input.GetKey(m_interactKey))
                 m_onInteract.Invoke();
             else if (Input.GetKeyUp(m_interactKey))
                 m_onInteractEnd.Invoke();
+            else
+                m_onNoInteract.Invoke();
         }
     }
 
