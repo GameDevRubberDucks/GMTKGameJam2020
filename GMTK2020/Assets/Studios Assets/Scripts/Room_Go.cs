@@ -2,13 +2,15 @@
 
 public class Room_Go : MonoBehaviour, IRoom_Interactable
 {
-
+    //--- Setup Variables ---//
     public Ship_GridManager ship;
     private Rigidbody2D shipRB;
 
+    //--- Public Variables ---///
     public float maxSpeed = 50.0f;
     public float acceleration = 0.2f;
     public float currentSpeed = 0.0f;
+
     //--- IRoom_Interactable Interface ---//
     public void Awake()
     {
