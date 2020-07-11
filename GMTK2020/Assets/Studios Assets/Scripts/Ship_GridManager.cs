@@ -126,6 +126,9 @@ public class Ship_GridManager : MonoBehaviour
         // localCoordinates = gridCoordinates * roomWorldSize
         roomTransform.localPosition = _roomNode.m_gridLoc * m_roomWorldSize;
 
+        // Reset the rotation so it lines up with the rest of the ship
+        roomTransform.localRotation = Quaternion.identity;
+
         // Trigger the room's attachment code
         _roomNode.m_roomScript.OnAttachedToShip();
     }
