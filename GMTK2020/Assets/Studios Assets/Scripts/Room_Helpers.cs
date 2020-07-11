@@ -1,4 +1,6 @@
-﻿public enum Room_AttachPoint
+﻿using UnityEngine;
+
+public enum Room_AttachPoint
 {
     Top,
     Right,

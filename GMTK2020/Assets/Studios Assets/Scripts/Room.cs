@@ -61,6 +61,11 @@ public class Room : MonoBehaviour
         m_doors[doorIdx].SetActive(!_isOpen);
     }
 
+    public void RemoveTriggerCollider()
+    {
+
+    }
+
 
 
     //--- Setters and Getters ---//

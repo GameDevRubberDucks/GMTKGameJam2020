@@ -69,8 +69,9 @@
     <Compile Include="Assets\Studios Assets\Scripts\Room_Drive.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Room_Go.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Room_Helpers.cs" />
+    <Compile Include="Assets\Studios Assets\Scripts\Room_Node.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Room_Turn.cs" />
-    <Compile Include="Assets\Studios Assets\Scripts\Ship.cs" />
+    <Compile Include="Assets\Studios Assets\Scripts\Ship_RoomGridManager.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\TempScript.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
