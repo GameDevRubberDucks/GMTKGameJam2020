@@ -20,13 +20,14 @@ public class Ship_RoomGridManager : MonoBehaviour
     {
         // Initialize the room grid with the starting room
         m_roomGrid = new Dictionary<Vector2, Room_Node>();
-        m_roomGrid.Add(Vector2.zero, new Room_Node(Vector2.zero, m_startRoom));
+        AddRoom(m_startRoom);
+        //m_roomGrid.Add(Vector2.zero, new Room_Node(Vector2.zero, m_startRoom));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // When we collide with a room floating in space, we should add it to the ship
-        if (collision.tag == "FloatingRoom")
+        if (collision.tag == "Room_Floating")
             AddRoom(collision.gameObject);
     }
 
@@ -35,6 +36,11 @@ public class Ship_RoomGridManager : MonoBehaviour
     //--- Methods ---//
     public void AddRoom(GameObject _newRoom)
     {
+        // If the room has already been added, back out
+        // This can happen as the trigger overlaps more than one collider?
+        if (GetGridAlreadyHasRoom(_newRoom))
+            return;
+
         // Randomly determine the grid coordinates that the new piece will go to
         Vector2 gridPlacement = RandomGridLocation();
 
@@ -54,6 +60,10 @@ public class Ship_RoomGridManager : MonoBehaviour
     //--- Utility Functions ---//
     private Vector2 RandomGridLocation()
     {
+        // If the grid is empty, the first room is always at (0,0)
+        if (m_roomGrid.Values.Count == 0)
+            return Vector2.zero;
+
         // Find all of the rooms that have at least one spot open and store them
         List<Room_Node> m_eligibleRooms = new List<Room_Node>();
         foreach(Room_Node roomNode in m_roomGrid.Values)
@@ -89,13 +99,16 @@ public class Ship_RoomGridManager : MonoBehaviour
 
     private void PlaceRoomInWorld(Room_Node _roomNode)
     {
-        // Move the actual gameobject to the right place in Unity's world grid
-        // worldCoordinates = gridCoordinates * roomWorldSize
-        var roomTransform = _roomNode.m_roomObj.transform;
-        roomTransform.position = _roomNode.m_gridLoc * m_roomWorldSize;
-
         // Make the room a child so it moves with the ship
+        var roomTransform = _roomNode.m_roomObj.transform;
         roomTransform.parent = m_roomParent;
+
+        // Move the actual gameobject to the right place in Unity's world grid
+        // localCoordinates = gridCoordinates * roomWorldSize
+        roomTransform.localPosition = _roomNode.m_gridLoc * m_roomWorldSize;
+
+        // Trigger the room's attachment code
+        _roomNode.m_roomScript.OnAttachedToShip();
     }
 
     private void LinkNeighbouringRooms(Room_Node _roomNode)
@@ -162,5 +175,18 @@ public class Ship_RoomGridManager : MonoBehaviour
                 return Room_AttachPoint.Bottom;
 
         }
+    }
+
+    private bool GetGridAlreadyHasRoom(GameObject _room)
+    {
+        // If the room exists in the grid, return true
+        foreach(var roomNode in m_roomGrid.Values)
+        {
+            if (roomNode.m_roomObj == _room)
+                return true;
+        }
+
+        // Otherwise, return false
+        return false;
     }
 }

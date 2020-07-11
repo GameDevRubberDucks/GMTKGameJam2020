@@ -8,6 +8,8 @@ public class Room : MonoBehaviour
     public GameObject[] m_doors;
     public SpriteRenderer m_occupiedIndicator;
     public SpriteRenderer m_specialSymbolObj;
+    public Collider2D m_outerTriggerCollider;
+    public GameObject m_roomBlocker;
 
     [Header("Generic Controls")]
     public KeyCode m_interactKey;
@@ -61,9 +63,16 @@ public class Room : MonoBehaviour
         m_doors[doorIdx].SetActive(!_isOpen);
     }
 
-    public void RemoveTriggerCollider()
+    public void OnAttachedToShip()
     {
+        // This is the collider that goes around the room
+        // Once this room is attached, the collider merges with the ship
+        // To do this, it can no longer have a rigidbody
+        Destroy(this.GetComponent<Rigidbody2D>());
+        m_outerTriggerCollider.usedByComposite = true;
 
+        // Hide the blocker since it is no longer in space
+        m_roomBlocker.SetActive(false);
     }
 
 
