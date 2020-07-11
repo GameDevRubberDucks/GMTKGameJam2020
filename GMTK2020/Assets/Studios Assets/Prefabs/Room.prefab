@@ -996,7 +996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4419744237784163426
 Transform:
   m_ObjectHideFlags: 0
@@ -2123,13 +2123,10 @@ MonoBehaviour:
   m_specialSymbolObj: {fileID: 4419744237940280870}
   m_interactKey: 101
   m_roomSymbol: {fileID: 0}
-  m_OnStartInteract:
+  m_onInteract:
     m_PersistentCalls:
       m_Calls: []
-  m_OnContinueInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnEndInteract:
+  m_onInteractEnd:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &4419744238481200602

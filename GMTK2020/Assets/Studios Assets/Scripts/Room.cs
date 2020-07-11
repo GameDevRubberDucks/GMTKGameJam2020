@@ -1,16 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public enum Room_DoorID
-{
-    Top,
-    Right,
-    Bottom,
-    Left,
-
-    Num_Doors
-}
-
 public class Room : MonoBehaviour
 {
     //--- Public Variables ---//
@@ -24,9 +14,9 @@ public class Room : MonoBehaviour
 
     [Header("This Room's Controls")]
     public Sprite m_roomSymbol;
-    public UnityEvent m_OnStartInteract;
-    public UnityEvent m_OnContinueInteract;
-    public UnityEvent m_OnEndInteract;
+    public string m_interactPrompt;
+    public UnityEvent m_onInteract;
+    public UnityEvent m_onInteractEnd;
 
 
 
@@ -55,13 +45,20 @@ public class Room : MonoBehaviour
         if (m_isOccupied)
         {
             // There are different interaction states to handle different key states
-            if (Input.GetKeyDown(m_interactKey))
-                m_OnStartInteract.Invoke();
-            else if (Input.GetKey(m_interactKey))
-                m_OnContinueInteract.Invoke();
+            if (Input.GetKey(m_interactKey))
+                m_onInteract.Invoke();
             else if (Input.GetKeyUp(m_interactKey))
-                m_OnEndInteract.Invoke();
+                m_onInteractEnd.Invoke();
         }
+    }
+
+
+
+    //--- Methods ---//
+    public void ToggleDoor(Room_AttachPoint _doorID, bool _isOpen)
+    {
+        int doorIdx = (int)_doorID;
+        m_doors[doorIdx].SetActive(!_isOpen);
     }
 
 
@@ -77,25 +74,9 @@ public class Room : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public string InteractPromptStr
     {
-        Debug.Log("OnTriggerEnter2D - " + other.gameObject.name);
-
-        if (other.tag == "Player")
-        {
-            m_occupiedIndicator.enabled = true;
-            m_isOccupied = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        Debug.Log("OnTriggerEnter2D - " + other.gameObject.name);
-
-        if (other.tag == "Player")
-        {
-            m_occupiedIndicator.enabled = false;
-            m_isOccupied = false;
-        }
+        get => m_interactPrompt; 
+        set => m_interactPrompt = value;
     }
 }
