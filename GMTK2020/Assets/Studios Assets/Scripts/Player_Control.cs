@@ -13,6 +13,7 @@ public class Player_Control : MonoBehaviour
     //--- Private Variables ---//
     public Vector2 movement = new Vector2(0.0f, 0.0f);
 
+    public Transform ship;
 
 
     void Start()
@@ -34,6 +35,6 @@ public class Player_Control : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.transform.position += new Vector3(movement.x, movement.y, 0.0f);
+        this.transform.localPosition += new Vector3(movement.x, movement.y, 0.0f);
     }
 }

@@ -1539,7 +1539,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2957,6 +2957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 50
   movement: {x: 0, y: 0}
+  ship: {fileID: 0}
 --- !u!1001 &659745691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3313,6 +3314,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 48670683, guid: 8a08a112767a7934c8826f99c0bfc96c, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 48670683, guid: 8a08a112767a7934c8826f99c0bfc96c, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1789521897330937320, guid: 8a08a112767a7934c8826f99c0bfc96c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3368,10 +3377,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1789521897330937321, guid: 8a08a112767a7934c8826f99c0bfc96c,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789521897330937321, guid: 8a08a112767a7934c8826f99c0bfc96c,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1789521897330937326, guid: 8a08a112767a7934c8826f99c0bfc96c,
         type: 3}
       propertyPath: m_Name
       value: Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789521898201988505, guid: 8a08a112767a7934c8826f99c0bfc96c,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789521898201988505, guid: 8a08a112767a7934c8826f99c0bfc96c,
+        type: 3}
+      propertyPath: acceleration
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a08a112767a7934c8826f99c0bfc96c, type: 3}
@@ -4264,7 +4293,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -6146,7 +6175,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
