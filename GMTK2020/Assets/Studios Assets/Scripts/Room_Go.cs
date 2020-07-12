@@ -52,5 +52,6 @@ public class Room_Go : MonoBehaviour, IRoom_Interactable
         }
         ship.transform.position += ship.transform.right * currentSpeed * Time.deltaTime;
         thrusterParticles.Stop();
+        audioManager.StopSFX(Audio_SFX.Engine);
     }
 }
