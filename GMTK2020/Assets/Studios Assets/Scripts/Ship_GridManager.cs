@@ -11,6 +11,7 @@ public class Ship_GridManager : MonoBehaviour
     public GameObject m_thruster;
     public GameObject m_gun;
     public CompositeCollider2D m_compositeCollider;
+    public ParticleSystem m_newRoomParticles;
 
 
 
@@ -90,6 +91,12 @@ public class Ship_GridManager : MonoBehaviour
 
         // Optionally place the gun
         PlaceGun(newNode);
+
+        // Play effects (only after the first room since that's the start of the game)
+        if (m_roomGrid.Values.Count > 1)
+        {
+            m_newRoomParticles.Play();
+        }
     }
 
 
