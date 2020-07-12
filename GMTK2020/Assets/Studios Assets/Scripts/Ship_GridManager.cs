@@ -10,6 +10,7 @@ public class Ship_GridManager : MonoBehaviour
     public Camera_Center m_cameraCenter;
     public GameObject m_thruster;
     public GameObject m_gun;
+    public CompositeCollider2D m_compositeCollider;
 
 
 
@@ -65,6 +66,8 @@ public class Ship_GridManager : MonoBehaviour
         LinkNeighbouringRooms(newNode);
 
         // Update the camera
+        if (GetLargestShipBound() != 0.0f)
+            m_cameraCenter.shipBounds = GetLargestShipBound();
         m_cameraCenter.AdjustCamera();
 
         // Place the thruster along the ship
@@ -291,5 +294,18 @@ public class Ship_GridManager : MonoBehaviour
 
         // Otherwise, return false
         return false;
+    }
+
+    public float GetLargestShipBound()
+    {
+        // Determine the bounds of the collider
+        var colliderBounds = m_compositeCollider.bounds;
+        float height = colliderBounds.max.y - colliderBounds.min.y;
+        float width = colliderBounds.max.x - colliderBounds.min.x;
+
+        // Return the size of the extents
+        //return colliderBounds.size.magnitude;
+        //return Mathf.Max(height, width);
+        return colliderBounds.extents.magnitude;
     }
 }

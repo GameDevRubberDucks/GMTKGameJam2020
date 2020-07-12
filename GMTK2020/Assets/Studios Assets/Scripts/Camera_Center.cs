@@ -15,6 +15,11 @@ public class Camera_Center : MonoBehaviour
     public float cameraIncreaseAmount = 1.0f;
 
     public Transform ship;
+    public Ship_GridManager shipManager;
+
+    public float shipBounds = 10.0f;
+    public float shipBoundsMultiplier = 1.25f;
+    public float minOrthoSize = 20.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +46,7 @@ public class Camera_Center : MonoBehaviour
     public void AdjustCamera()
     {
         //Reset Camera
-        cameraOffset = new Vector3(2.5f, 0.0f, 0.0f);
+        cameraOffset = Vector3.zero;
         //Finds all the rooms in the scene
         //---Change with the right script
         //Then need to check if they are attached
@@ -62,9 +67,12 @@ public class Camera_Center : MonoBehaviour
 
         //Add the base cameraoffset
         cameraOffset += baseCameraPos;
-        
+
         //This will change the zoom of the camera, might be an easier way but oh well
-        this.GetComponent<Camera>().orthographicSize = (cameraIncreaseAmount * numAttached) + baseCameraSize;
+        //this.GetComponent<Camera>().orthographicSize = (cameraIncreaseAmount * numAttached) + baseCameraSize;
+        //this.GetComponent<Camera>().orthographicSize = shipBounds * shipBoundCurve.Evaluate(shipBounds);
+        //this.GetComponent<Camera>().orthographicSize = shipBounds * Screen.height / Screen.width * 0.5f;
+        this.GetComponent<Camera>().orthographicSize = Mathf.Max(shipBounds * shipBoundsMultiplier, minOrthoSize);
     }
 
 

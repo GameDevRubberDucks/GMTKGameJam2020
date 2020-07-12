@@ -779,6 +779,10 @@ MonoBehaviour:
   baseCameraSize: 20
   cameraIncreaseAmount: 10
   ship: {fileID: 1789521897330937320}
+  shipManager: {fileID: 0}
+  shipBounds: 0
+  shipBoundsMultiplier: 1.25
+  minOrthoSize: 20
 --- !u!1 &1789521897330937326
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,6 +839,7 @@ MonoBehaviour:
   m_cameraCenter: {fileID: 2008962965}
   m_thruster: {fileID: 893093963}
   m_gun: {fileID: 548725689}
+  m_compositeCollider: {fileID: 0}
 --- !u!50 &1789521897330937321
 Rigidbody2D:
   serializedVersion: 4
