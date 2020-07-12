@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public enum Audio_SFX
 {
@@ -7,14 +6,14 @@ public enum Audio_SFX
     Gun_Shoot,
     Explosion,
     Warp_Drive,
-    Crash
+    Crash,
+    New_Room
 }
 
 public class Audio_Manager : MonoBehaviour
 {
     public AudioSource m_srcMusic;
-    public AudioSource m_srcSFX;
-    public AudioClip[] m_audioClips;
+    public AudioSource[] m_srcSFX;
 
     private static Audio_Manager m_instance;
 
@@ -40,11 +39,17 @@ public class Audio_Manager : MonoBehaviour
         m_srcMusic.Play();
     }
 
-    public void PlaySFX(Audio_SFX _clipName)
+    public void PlaySFX(Audio_SFX _sfxName)
     {
-        Debug.Log("Playing sound [" + _clipName.ToString() + "]");
+        Debug.Log("Playing sound [" + _sfxName.ToString() + "]");
 
-        var sfxClip = m_audioClips[(int)_clipName];
-        m_srcSFX.PlayOneShot(sfxClip);
+        m_srcSFX[(int)_sfxName].Play();
+    }
+
+    public void StopSFX(Audio_SFX _sfxName)
+    {
+        Debug.Log("Stopping sound [" + _sfxName.ToString() + "]");
+
+        m_srcSFX[(int)_sfxName].Stop();
     }
 }

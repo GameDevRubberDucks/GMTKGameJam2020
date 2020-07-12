@@ -20,6 +20,7 @@ public class Ship_GridManager : MonoBehaviour
     private Room_Node m_lastThrusterAttachment;
     private Room_Node m_lastGunAttachment;
     private Camera_Shake m_camShake;
+    private Audio_Manager m_audioManager;
     private bool m_hasGun;
 
 
@@ -30,7 +31,8 @@ public class Ship_GridManager : MonoBehaviour
         // Initialize the private variables
         m_lastThrusterAttachment = null;
         m_lastGunAttachment = null;
-        m_camShake = GameObject.FindObjectOfType<Camera_Shake>();
+        m_camShake = FindObjectOfType<Camera_Shake>();
+        m_audioManager = FindObjectOfType<Audio_Manager>();
         m_hasGun = false;
 
         // Initialize the room grid with the starting room
@@ -48,6 +50,7 @@ public class Ship_GridManager : MonoBehaviour
 
             // Play effects
             m_camShake.Shake(0.5f, 0.25f);
+            m_audioManager.PlaySFX(Audio_SFX.New_Room);
         }
     }
 
@@ -55,7 +58,10 @@ public class Ship_GridManager : MonoBehaviour
     {
         // Play effects
         if (collision.gameObject.tag == "Environment")
+        {
             m_camShake.Shake(1.0f, 0.5f);
+            m_audioManager.PlaySFX(Audio_SFX.Crash);
+        }
     }
 
 

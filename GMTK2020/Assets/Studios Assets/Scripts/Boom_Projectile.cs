@@ -26,6 +26,7 @@ public class Boom_Projectile : MonoBehaviour
         {
             GameObject breakableExplosion = Instantiate(explosionParticles, collision.transform.position, Quaternion.identity, null);
             Destroy(breakableExplosion, 1.5f);
+            FindObjectOfType<Audio_Manager>().PlaySFX(Audio_SFX.Explosion);
 
             Destroy(collision.gameObject);
             GameObject.FindObjectOfType<Camera_Shake>().Shake(1.5f, 0.5f);
@@ -39,5 +40,6 @@ public class Boom_Projectile : MonoBehaviour
         GameObject projectileExplosion = Instantiate(explosionParticles, this.transform.position, Quaternion.identity, null);
         Destroy(projectileExplosion, 1.5f);
         Destroy(this.gameObject);
+        FindObjectOfType<Audio_Manager>().PlaySFX(Audio_SFX.Explosion);
     }
 }
