@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b42f4f0dc291b148bd5c5fadf93f548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pivot: {fileID: 0}
+  camPos: {fileID: 0}
+  ship: {fileID: 0}
+  rotateSpeed: 0
+  centerMass: {x: 0, y: 0, z: 0}
 --- !u!1001 &6019008366273291028
 PrefabInstance:
   m_ObjectHideFlags: 0

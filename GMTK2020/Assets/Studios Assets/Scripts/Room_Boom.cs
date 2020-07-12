@@ -6,6 +6,7 @@ public class Room_Boom : MonoBehaviour, IRoom_Interactable
     public void OnInteractionStart()
     {
         Debug.Log("InteractionStart()");
+
     }
 
     public void OnInteraction()

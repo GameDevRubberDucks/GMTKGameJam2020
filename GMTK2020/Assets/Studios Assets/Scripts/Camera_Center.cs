@@ -41,7 +41,7 @@ public class Camera_Center : MonoBehaviour
     public void AdjustCamera()
     {
         //Reset Camera
-        cameraOffset = new Vector3(2.5f, 0.0f, 0.0f);
+        cameraOffset = new Vector3(0.0f, 0.0f, 0.0f);
         //Finds all the rooms in the scene
         //---Change with the right script
         //Then need to check if they are attached
@@ -70,9 +70,14 @@ public class Camera_Center : MonoBehaviour
 
     void CameraFollow()
     {
+        //lerp not working
         //cameraoffset is the calculated offset from the rooms. BasecameraPos is the overall offset to the right
-        Vector3 desiredPosition = ship.position + cameraOffset + baseCameraPos;
-        Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredPosition, 0.125f);
-        this.transform.position = new Vector3 (smoothPosition.x,smoothPosition.y,-10.0f); //-10.0 because thats how it works
+        //Vector3 desiredPosition = ship.position + cameraOffset + baseCameraPos;
+        //Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredPosition, 0.125f);
+        //this.transform.position = new Vector3 (smoothPosition.x,smoothPosition.y,-10.0f); //-10.0 because thats how it works
+        
+        //Hard Set
+        this.transform.localPosition = cameraOffset; //-10.0 because thats how it works
+        this.transform.localPosition += new Vector3(0.0f, 0.0f, -10.0f);
     }
 }

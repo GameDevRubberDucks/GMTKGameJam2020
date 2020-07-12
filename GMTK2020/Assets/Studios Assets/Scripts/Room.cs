@@ -59,6 +59,11 @@ public class Room : MonoBehaviour
                 m_onInteractEnd.Invoke();
             else
                 m_onNoInteract.Invoke();
+
+        }
+        else
+        {
+            m_onNoInteract.Invoke();
         }
     }
 
