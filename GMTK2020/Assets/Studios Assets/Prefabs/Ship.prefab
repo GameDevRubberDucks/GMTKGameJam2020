@@ -14436,7 +14436,7 @@ MonoBehaviour:
   m_outerTriggerCollider: {fileID: 8985528679466435238}
   m_roomBlocker: {fileID: 8985528680490334330}
   m_interactKey: 101
-  m_roomSymbol: {fileID: -3518864264147610085, guid: 56e8560f3a429f14595480b57d06032f,
+  m_roomSymbol: {fileID: -938838916854586265, guid: a35291d10af567445889e2631bd897ae,
     type: 3}
   m_interactPrompt: Move Ship
   m_onInteractStart:
@@ -15606,7 +15606,7 @@ SpriteRenderer:
   m_SortingLayerID: 389120977
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: -3518864264147610085, guid: 56e8560f3a429f14595480b57d06032f,
+  m_Sprite: {fileID: -938838916854586265, guid: a35291d10af567445889e2631bd897ae,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
