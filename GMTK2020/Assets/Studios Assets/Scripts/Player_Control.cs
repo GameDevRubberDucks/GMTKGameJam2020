@@ -13,7 +13,6 @@ public class Player_Control : MonoBehaviour
     //--- Private Variables ---//
     public Vector2 movement = new Vector2(0.0f, 0.0f);
 
-    public Transform ship;
 
 
     void Start()
