@@ -10,8 +10,8 @@ EditorBuildSettings:
     guid: 3c5b423257f68624baa4b952e05521f1
   - enabled: 1
     path: Assets/Studios Assets/Scenes/Game.unity
-    guid: 4e92f134d9ead634e9ddd4fd72ccf882
+    guid: 2f045080f2dbab042b09369a81ea4767
   - enabled: 1
     path: Assets/Studios Assets/Scenes/EndScreen.unity
-    guid: 9b1a6f31098113a43852978dfd2d47a9
+    guid: bc932de95efa72141bcb6b117bd9e0d0
   m_configObjects: {}
