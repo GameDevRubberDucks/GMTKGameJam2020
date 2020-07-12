@@ -1,25 +1,28 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Room_Drive : MonoBehaviour, IRoom_Interactable
 {
+    //--- Public Variables ---//
+    public string m_endScreenName;
+
+
+
     //--- IRoom_Interactable Interface ---//
     public void OnInteractionStart()
     {
-        Debug.Log("InteractionStart()");
+        SceneManager.LoadScene(m_endScreenName);
     }
 
     public void OnInteraction()
     {
-        Debug.Log("Interaction()");
     }
 
     public void OnInteractionEnd()
     {
-        Debug.Log("InteractionEnd()");
     }
 
     public void OnNoInteraction()
     {
-        Debug.Log("NoInteraction()");
     }
 }
