@@ -6,6 +6,7 @@ public class Room_Go : MonoBehaviour, IRoom_Interactable
     public Ship_GridManager ship;
     public ParticleSystem thrusterParticles;
     private Rigidbody2D shipRB;
+    private Audio_Manager audioManager;
 
     //--- Public Variables ---///
     public float maxSpeed = 50.0f;
@@ -17,10 +18,12 @@ public class Room_Go : MonoBehaviour, IRoom_Interactable
     {
         ship = FindObjectOfType<Ship_GridManager>();
         shipRB = ship.GetComponent<Rigidbody2D>();
+        audioManager = FindObjectOfType<Audio_Manager>();
     }
     public void OnInteractionStart()
     {
         thrusterParticles.Play();
+        audioManager.PlaySFX(Audio_SFX.Engine);
     }
 
     public void OnInteraction()
@@ -36,6 +39,7 @@ public class Room_Go : MonoBehaviour, IRoom_Interactable
     public void OnInteractionEnd()
     {
         thrusterParticles.Stop();
+        audioManager.StopSFX(Audio_SFX.Engine);
     }
 
     public void OnNoInteraction()

@@ -11,6 +11,7 @@ public class Room_Drive : MonoBehaviour, IRoom_Interactable
     //--- IRoom_Interactable Interface ---//
     public void OnInteractionStart()
     {
+        FindObjectOfType<Audio_Manager>().PlaySFX(Audio_SFX.Warp_Drive);
         SceneManager.LoadScene(m_endScreenName);
     }
 

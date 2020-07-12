@@ -7,23 +7,39 @@ public class Boom_Projectile : MonoBehaviour
 
     public float projectileSpeed = 1.0f;
     public float timer = 0.0f;
+    public GameObject explosionParticles;
 
     // Update is called once per frame
+    private void Start()
+    {
+        Invoke("BlowUp", timer);
+    }
+
     void Update()
     {
         this.transform.position += this.transform.right * projectileSpeed;
-
-        Destroy(this.gameObject, timer);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "breakable")
         {
+            GameObject breakableExplosion = Instantiate(explosionParticles, collision.transform.position, Quaternion.identity, null);
+            Destroy(breakableExplosion, 1.5f);
+            FindObjectOfType<Audio_Manager>().PlaySFX(Audio_SFX.Explosion);
+
             Destroy(collision.gameObject);
-            Destroy(this);
             GameObject.FindObjectOfType<Camera_Shake>().Shake(1.5f, 0.5f);
         }
+
+        BlowUp();
+    }
+
+    public void BlowUp()
+    {
+        GameObject projectileExplosion = Instantiate(explosionParticles, this.transform.position, Quaternion.identity, null);
+        Destroy(projectileExplosion, 1.5f);
         Destroy(this.gameObject);
+        FindObjectOfType<Audio_Manager>().PlaySFX(Audio_SFX.Explosion);
     }
 }
