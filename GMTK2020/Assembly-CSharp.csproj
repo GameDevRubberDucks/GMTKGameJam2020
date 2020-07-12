@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Studios Assets\Scripts\Boom_Projectile.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Camera_Center.cs" />
+    <Compile Include="Assets\Studios Assets\Scripts\Camera_Shake.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Player_Control.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Player_RoomDetector.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Room.cs" />

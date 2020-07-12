@@ -21,8 +21,8 @@ public class Boom_Projectile : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(this);
+            GameObject.FindObjectOfType<Camera_Shake>().Shake(1.5f, 0.5f);
         }
-        Debug.Log("BOOM");
         Destroy(this.gameObject);
     }
 }

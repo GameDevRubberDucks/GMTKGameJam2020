@@ -19,12 +19,10 @@ public class Room_Go : MonoBehaviour, IRoom_Interactable
     }
     public void OnInteractionStart()
     {
-        Debug.Log("InteractionStart()");
     }
 
     public void OnInteraction()
     {
-        Debug.Log("Interaction()");
         //shipRB.AddForce(new Vector2(1.0f,0.0f) * 5.0f);
         if ( currentSpeed < maxSpeed)
         {
@@ -35,12 +33,10 @@ public class Room_Go : MonoBehaviour, IRoom_Interactable
 
     public void OnInteractionEnd()
     {
-        Debug.Log("InteractionEnd()");
     }
 
     public void OnNoInteraction()
     {
-        Debug.Log("NoInteraction()");
         //shipRB.AddForce(new Vector2(-1.0f, 0.0f) * 0.5f);
 
         if (currentSpeed > 0.0f)
