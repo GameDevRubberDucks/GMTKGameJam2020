@@ -66,6 +66,7 @@
     <Compile Include="Assets\Studios Assets\Scripts\Boom_Projectile.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Camera_Center.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Camera_Shake.cs" />
+    <Compile Include="Assets\Studios Assets\Scripts\Menu_Controller.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Player_Control.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Player_RoomDetector.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Room.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Assets\Studios Assets\Scripts\Room_Helpers.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Room_Node.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Room_Turn.cs" />
+    <Compile Include="Assets\Studios Assets\Scripts\Scene_Loader.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Ship_GridManager.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\TempScript.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Temp_Room.cs" />
