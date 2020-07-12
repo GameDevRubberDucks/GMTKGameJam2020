@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1012584715138817290}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Layout_Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7193591768285885563}
   - component: {fileID: 5420391336980977170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Room_Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 4468218516605157601}
   - component: {fileID: 5708026858541363327}
   - component: {fileID: 5458939352945269685}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Colliders_RightWall_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 6939548874668626411}
   - component: {fileID: 4774906769988973151}
   - component: {fileID: 1598756587339457952}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Colliders_TopWall_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 7965883754959844503}
   - component: {fileID: 6884313398493695775}
   - component: {fileID: 1418968747636448585}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1262759117339344005}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Room_Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 7519350408813670084}
   - component: {fileID: 4076834981772881874}
   - component: {fileID: 8130625129479338698}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4419744237940280869}
   - component: {fileID: 4419744237940280870}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Layout_SpecialRoomIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +678,7 @@ GameObject:
   - component: {fileID: 1839087367}
   - component: {fileID: 2831637602476663950}
   - component: {fileID: 6382986642944684105}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Room
   m_TagString: Room_Floating
   m_Icon: {fileID: 0}
@@ -795,7 +795,7 @@ GameObject:
   - component: {fileID: 1987728031982442466}
   - component: {fileID: 5028900468707891221}
   - component: {fileID: 7830836707168655307}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Colliders_RightWall_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -902,7 +902,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3979912851027910542}
   - component: {fileID: 3212335550393716904}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Room_Layout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 4357230897544613690}
   - component: {fileID: 1613731649931678447}
   - component: {fileID: 3818890608627318952}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Colliders_TopWall_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1097,7 +1097,7 @@ GameObject:
   - component: {fileID: 2016785273351286044}
   - component: {fileID: 8207979438222974686}
   - component: {fileID: 7428385285562123880}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Colliders_BottomWall_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4450360696781278245}
   - component: {fileID: 6785951527700193100}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Layout_BottomShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1286,7 +1286,7 @@ GameObject:
   - component: {fileID: 27574450500418435}
   - component: {fileID: 8391135096361041625}
   - component: {fileID: 8624701610711715133}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1394,7 +1394,7 @@ GameObject:
   - component: {fileID: 5829569658042059098}
   - component: {fileID: 8133586944541798068}
   - component: {fileID: 718861731131388600}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Colliders_BottomWall_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1502,7 +1502,7 @@ GameObject:
   - component: {fileID: 6103751852102485790}
   - component: {fileID: 1195815765151674572}
   - component: {fileID: 2185199105441460930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Colliders_LeftWall_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1610,7 +1610,7 @@ GameObject:
   - component: {fileID: 7113798016973699671}
   - component: {fileID: 5841216021418776630}
   - component: {fileID: 6098405661974290850}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Layout_OccupiedIndicator
   m_TagString: Room_PlayerDetector
   m_Icon: {fileID: 0}
@@ -1718,7 +1718,7 @@ GameObject:
   - component: {fileID: 6991638316752668008}
   - component: {fileID: 4359462568034937123}
   - component: {fileID: 7519228016966194348}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1826,7 +1826,7 @@ GameObject:
   - component: {fileID: 3682473214369630043}
   - component: {fileID: 3640157332414921491}
   - component: {fileID: 7780001560295284003}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Colliders_LeftWall_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
