@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Studios Assets\Scripts\Audio_Manager.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Boom_Projectile.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Camera_Center.cs" />
     <Compile Include="Assets\Studios Assets\Scripts\Camera_Shake.cs" />
