@@ -7,12 +7,13 @@ public class Boom_Projectile : MonoBehaviour
 
     public float projectileSpeed = 1.0f;
     public float timer = 0.0f;
+
     // Update is called once per frame
     void Update()
     {
         this.transform.position += this.transform.right * projectileSpeed;
 
-        Destroy(this.gameObject,0.50f);
+        Destroy(this.gameObject, timer);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -21,8 +22,8 @@ public class Boom_Projectile : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(this);
+            GameObject.FindObjectOfType<Camera_Shake>().Shake(1.5f, 0.5f);
         }
-        Debug.Log("BOOM");
         Destroy(this.gameObject);
     }
 }

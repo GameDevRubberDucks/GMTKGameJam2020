@@ -1774,7 +1774,7 @@ GameObject:
   - component: {fileID: 311542227}
   m_Layer: 0
   m_Name: New SpriteShapeController (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2496,7 +2496,7 @@ GameObject:
   - component: {fileID: 382600261}
   m_Layer: 0
   m_Name: New SpriteShapeController (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3143,7 +3143,7 @@ GameObject:
   - component: {fileID: 505992281}
   m_Layer: 0
   m_Name: New Sprite
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4738,7 +4738,7 @@ GameObject:
   - component: {fileID: 778891321}
   m_Layer: 0
   m_Name: New Sprite (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5102,7 +5102,7 @@ GameObject:
   - component: {fileID: 857002432}
   m_Layer: 0
   m_Name: New SpriteShapeController (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6725,7 +6725,7 @@ GameObject:
   - component: {fileID: 1132982282}
   - component: {fileID: 1132982283}
   m_Layer: 0
-  m_Name: New Sprite (2)
+  m_Name: Breakable Wall
   m_TagString: breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7824,7 +7824,7 @@ GameObject:
   - component: {fileID: 1360457188}
   m_Layer: 0
   m_Name: New SpriteShapeController (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8337,7 +8337,7 @@ GameObject:
   - component: {fileID: 1442447927}
   - component: {fileID: 1442447928}
   m_Layer: 0
-  m_Name: New Sprite (5)
+  m_Name: Breakable Wall
   m_TagString: breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8500,7 +8500,7 @@ GameObject:
   - component: {fileID: 1508546682}
   m_Layer: 0
   m_Name: New Sprite (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8677,7 +8677,7 @@ GameObject:
   - component: {fileID: 1546484635}
   m_Layer: 0
   m_Name: New Sprite (7)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9845,7 +9845,7 @@ GameObject:
   - component: {fileID: 1725665845}
   - component: {fileID: 1725665846}
   m_Layer: 0
-  m_Name: New Sprite (6)
+  m_Name: Breakable Wall
   m_TagString: breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10967,7 +10967,7 @@ GameObject:
   - component: {fileID: 1921068997}
   m_Layer: 0
   m_Name: New Sprite (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

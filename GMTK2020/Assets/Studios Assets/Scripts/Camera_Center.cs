@@ -21,6 +21,9 @@ public class Camera_Center : MonoBehaviour
     public float shipBoundsMultiplier = 1.25f;
     public float minOrthoSize = 20.0f;
 
+    public float m_zoomOutMultiplier = 2.0f;
+    private bool m_isZoomedOut = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,7 @@ public class Camera_Center : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -39,6 +42,15 @@ public class Camera_Center : MonoBehaviour
         }
 
         CameraFollow();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            m_isZoomedOut = !m_isZoomedOut;
+            AdjustCamera();
+        }
     }
 
 
@@ -72,7 +84,9 @@ public class Camera_Center : MonoBehaviour
         //this.GetComponent<Camera>().orthographicSize = (cameraIncreaseAmount * numAttached) + baseCameraSize;
         //this.GetComponent<Camera>().orthographicSize = shipBounds * shipBoundCurve.Evaluate(shipBounds);
         //this.GetComponent<Camera>().orthographicSize = shipBounds * Screen.height / Screen.width * 0.5f;
-        this.GetComponent<Camera>().orthographicSize = Mathf.Max(shipBounds * shipBoundsMultiplier, minOrthoSize);
+        float orthoSize = Mathf.Max(shipBounds * shipBoundsMultiplier, minOrthoSize);
+        orthoSize = (m_isZoomedOut) ? orthoSize * 2.0f : orthoSize;
+        this.GetComponent<Camera>().orthographicSize = orthoSize;
     }
 
 

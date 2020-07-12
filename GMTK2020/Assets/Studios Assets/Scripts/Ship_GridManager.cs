@@ -11,6 +11,7 @@ public class Ship_GridManager : MonoBehaviour
     public GameObject m_thruster;
     public GameObject m_gun;
     public CompositeCollider2D m_compositeCollider;
+    public ParticleSystem m_newRoomParticles;
 
 
 
@@ -18,6 +19,7 @@ public class Ship_GridManager : MonoBehaviour
     private Dictionary<Vector2, Room_Node> m_roomGrid;
     private Room_Node m_lastThrusterAttachment;
     private Room_Node m_lastGunAttachment;
+    private Camera_Shake m_camShake;
     private bool m_hasGun;
 
 
@@ -28,6 +30,7 @@ public class Ship_GridManager : MonoBehaviour
         // Initialize the private variables
         m_lastThrusterAttachment = null;
         m_lastGunAttachment = null;
+        m_camShake = GameObject.FindObjectOfType<Camera_Shake>();
         m_hasGun = false;
 
         // Initialize the room grid with the starting room
@@ -39,7 +42,20 @@ public class Ship_GridManager : MonoBehaviour
     {
         // When we collide with a room floating in space, we should add it to the ship
         if (collision.tag == "Room_Floating")
+        {
+            // Add the room
             AddRoom(collision.gameObject);
+
+            // Play effects
+            m_camShake.Shake(0.5f, 0.25f);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Play effects
+        if (collision.gameObject.tag == "Environment")
+            m_camShake.Shake(1.0f, 0.5f);
     }
 
 
@@ -75,6 +91,12 @@ public class Ship_GridManager : MonoBehaviour
 
         // Optionally place the gun
         PlaceGun(newNode);
+
+        // Play effects (only after the first room since that's the start of the game)
+        if (m_roomGrid.Values.Count > 1)
+        {
+            m_newRoomParticles.Play();
+        }
     }
 
 
