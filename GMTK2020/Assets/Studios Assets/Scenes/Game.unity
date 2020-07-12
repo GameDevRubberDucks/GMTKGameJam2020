@@ -15851,6 +15851,11 @@ PrefabInstance:
       propertyPath: m_ShapeTexture
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1613987039292114399, guid: 2cd08ff3cb66c8945825e85181ced43b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 1613987039526986216, guid: 2cd08ff3cb66c8945825e85181ced43b,
         type: 3}
       propertyPath: m_Size.x
