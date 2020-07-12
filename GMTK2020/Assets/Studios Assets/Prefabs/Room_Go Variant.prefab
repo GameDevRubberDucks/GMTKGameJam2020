@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
-  maxSpeed: 10
-  acceleration: 1
-  currentSpeed: 0
+  maxSpeed: 50
+  acceleration: 0.1
+  currentSpeed: -0.09999987
 --- !u!1001 &8197574499410536348
 PrefabInstance:
   m_ObjectHideFlags: 0

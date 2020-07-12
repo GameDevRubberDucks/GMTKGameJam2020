@@ -84,6 +84,9 @@ MonoBehaviour:
   m_roomWorldSize: 16
   m_roomParent: {fileID: 5158535827877150521}
   m_cameraCenter: {fileID: 6864442055729097893}
+  m_thruster: {fileID: 0}
+  m_gun: {fileID: 0}
+  m_compositeCollider: {fileID: 0}
 --- !u!50 &5158535829248014041
 Rigidbody2D:
   serializedVersion: 4
@@ -329,6 +332,10 @@ MonoBehaviour:
   baseCameraSize: 20
   cameraIncreaseAmount: 10
   ship: {fileID: 5158535829248014040}
+  shipManager: {fileID: 0}
+  shipBounds: 10
+  shipBoundsMultiplier: 1.25
+  minOrthoSize: 20
 --- !u!1 &6864442056171680668
 GameObject:
   m_ObjectHideFlags: 0

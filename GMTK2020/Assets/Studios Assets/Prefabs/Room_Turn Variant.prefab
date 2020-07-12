@@ -15,7 +15,7 @@ MonoBehaviour:
   pivot: {fileID: 0}
   camPos: {fileID: 0}
   ship: {fileID: 0}
-  rotateSpeed: 0
+  rotateSpeed: 100
   centerMass: {x: 0, y: 0, z: 0}
 --- !u!1001 &6019008366273291028
 PrefabInstance:
