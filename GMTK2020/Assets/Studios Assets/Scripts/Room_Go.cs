@@ -4,6 +4,7 @@ public class Room_Go : MonoBehaviour, IRoom_Interactable
 {
     //--- Setup Variables ---//
     public Ship_GridManager ship;
+    public ParticleSystem thrusterParticles;
     private Rigidbody2D shipRB;
 
     //--- Public Variables ---///
@@ -19,6 +20,7 @@ public class Room_Go : MonoBehaviour, IRoom_Interactable
     }
     public void OnInteractionStart()
     {
+        thrusterParticles.Play();
     }
 
     public void OnInteraction()
@@ -33,6 +35,7 @@ public class Room_Go : MonoBehaviour, IRoom_Interactable
 
     public void OnInteractionEnd()
     {
+        thrusterParticles.Stop();
     }
 
     public void OnNoInteraction()
@@ -44,5 +47,6 @@ public class Room_Go : MonoBehaviour, IRoom_Interactable
             currentSpeed -= acceleration;
         }
         ship.transform.position += ship.transform.right * currentSpeed * Time.deltaTime;
+        thrusterParticles.Stop();
     }
 }

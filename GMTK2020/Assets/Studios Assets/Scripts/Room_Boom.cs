@@ -6,6 +6,7 @@ public class Room_Boom : MonoBehaviour, IRoom_Interactable
     public Ship_GridManager ship;
     public Transform spawnPoint;
     public GameObject projectile;
+    public ParticleSystem gunParticles;
 
     //--- Private Setup Variables ---//
     private Camera_Shake camShake;
@@ -22,6 +23,7 @@ public class Room_Boom : MonoBehaviour, IRoom_Interactable
     {
         camShake.Shake(0.5f, 0.25f);
         Instantiate(projectile,spawnPoint.position,this.transform.rotation,null);
+        gunParticles.Play();
     }
 
     public void OnInteraction()
