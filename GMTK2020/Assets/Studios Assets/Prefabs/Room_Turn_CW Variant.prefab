@@ -15,7 +15,7 @@ MonoBehaviour:
   pivot: {fileID: 0}
   camPos: {fileID: 0}
   ship: {fileID: 0}
-  rotateSpeed: 100
+  rotateSpeed: -100
   centerMass: {x: 0, y: 0, z: 0}
 --- !u!1001 &6019008366273291028
 PrefabInstance:
@@ -47,7 +47,7 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1839087367, guid: a248bbd504ba1e04ca1f998a0aede3da, type: 3}
       propertyPath: m_interactPrompt
-      value: Turn Ship
+      value: Turn Clockwise
       objectReference: {fileID: 0}
     - target: {fileID: 1839087367, guid: a248bbd504ba1e04ca1f998a0aede3da, type: 3}
       propertyPath: m_onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -148,7 +148,7 @@ PrefabInstance:
     - target: {fileID: 4419744238424277486, guid: a248bbd504ba1e04ca1f998a0aede3da,
         type: 3}
       propertyPath: m_Name
-      value: Room_Turn Variant
+      value: Room_Turn_CW Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4419744238424277487, guid: a248bbd504ba1e04ca1f998a0aede3da,
         type: 3}
