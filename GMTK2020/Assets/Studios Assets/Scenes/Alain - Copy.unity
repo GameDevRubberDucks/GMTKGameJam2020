@@ -5558,6 +5558,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 8878484785487839639, guid: ba7a8fe088b1a604b886b86a143cf974,
+        type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 792860569}
+    - target: {fileID: 8878484785487839639, guid: ba7a8fe088b1a604b886b86a143cf974,
+        type: 3}
+      propertyPath: gunParticles
+      value: 
+      objectReference: {fileID: 838766859}
+    - target: {fileID: 8878484785487839639, guid: ba7a8fe088b1a604b886b86a143cf974,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 49936235631762754, guid: 81a6cfd4a63d95745bd7d29a14e7f6e8,
+        type: 3}
     - target: {fileID: 8935432004679550430, guid: ba7a8fe088b1a604b886b86a143cf974,
         type: 3}
       propertyPath: m_Layer
@@ -6309,6 +6325,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &792860569 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8985528679978972041, guid: 8a08a112767a7934c8826f99c0bfc96c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1679786340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &799896752
 GameObject:
   m_ObjectHideFlags: 0
@@ -6901,6 +6923,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!198 &838766859 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 466966859, guid: 8a08a112767a7934c8826f99c0bfc96c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1679786340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &853438722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4419744238424277487, guid: a248bbd504ba1e04ca1f998a0aede3da,
