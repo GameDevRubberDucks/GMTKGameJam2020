@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d1ddad59f15f14c8b09fc6fea23033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  projectile: {fileID: 0}
 --- !u!1001 &8393461363134737151
 PrefabInstance:
   m_ObjectHideFlags: 0

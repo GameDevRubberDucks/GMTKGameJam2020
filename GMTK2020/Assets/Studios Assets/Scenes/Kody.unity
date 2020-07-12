@@ -3032,7 +3032,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 50
   movement: {x: 0, y: 0}
-  ship: {fileID: 0}
+--- !u!4 &640787657 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1816120889, guid: 8a08a112767a7934c8826f99c0bfc96c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1679786340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &659745691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3204,12 +3209,12 @@ Transform:
   - {fileID: 1360457185}
   - {fileID: 505992279}
   - {fileID: 1921068995}
-  - {fileID: 1132982281}
   - {fileID: 1508546680}
   - {fileID: 778891319}
+  - {fileID: 1546484633}
   - {fileID: 1442447926}
   - {fileID: 1725665844}
-  - {fileID: 1546484633}
+  - {fileID: 1132982281}
   - {fileID: 382195201}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -3224,12 +3229,12 @@ PrefabInstance:
     - target: {fileID: 5273017336570800912, guid: ba7a8fe088b1a604b886b86a143cf974,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -336.7
+      value: -533.1
       objectReference: {fileID: 0}
     - target: {fileID: 5273017336570800912, guid: ba7a8fe088b1a604b886b86a143cf974,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -59.1
+      value: -67.5
       objectReference: {fileID: 0}
     - target: {fileID: 5273017336570800912, guid: ba7a8fe088b1a604b886b86a143cf974,
         type: 3}
@@ -3281,6 +3286,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room_Boom Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8878484785487839639, guid: ba7a8fe088b1a604b886b86a143cf974,
+        type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 640787657}
+    - target: {fileID: 8878484785487839639, guid: ba7a8fe088b1a604b886b86a143cf974,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 49936235631762754, guid: 81a6cfd4a63d95745bd7d29a14e7f6e8,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7a8fe088b1a604b886b86a143cf974, type: 3}
 --- !u!4 &711591075 stripped
@@ -3548,7 +3564,7 @@ Transform:
   m_LocalScale: {x: 29.761072, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 696678142}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 115.90001}
 --- !u!212 &778891320
 SpriteRenderer:
@@ -4973,7 +4989,7 @@ GameObject:
   - component: {fileID: 1132982283}
   m_Layer: 0
   m_Name: New Sprite (2)
-  m_TagString: Untagged
+  m_TagString: breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4990,7 +5006,7 @@ Transform:
   m_LocalScale: {x: 16.43804, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 696678142}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &1132982282
 SpriteRenderer:
@@ -6310,7 +6326,7 @@ GameObject:
   - component: {fileID: 1442447928}
   m_Layer: 0
   m_Name: New Sprite (5)
-  m_TagString: Untagged
+  m_TagString: breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6323,7 +6339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442447925}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 72, y: -52, z: 0}
+  m_LocalPosition: {x: 2.8, y: -7.7, z: 0}
   m_LocalScale: {x: 16.43804, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 696678142}
@@ -6489,7 +6505,7 @@ Transform:
   m_LocalScale: {x: 12.759881, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 696678142}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1508546681
 SpriteRenderer:
@@ -6666,7 +6682,7 @@ Transform:
   m_LocalScale: {x: 29.761072, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 696678142}
-  m_RootOrder: 11
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 57.757004}
 --- !u!212 &1546484634
 SpriteRenderer:
@@ -7254,6 +7270,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 548725689, guid: 8a08a112767a7934c8826f99c0bfc96c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1789521897330937320, guid: 8a08a112767a7934c8826f99c0bfc96c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7595,7 +7615,7 @@ GameObject:
   - component: {fileID: 1725665846}
   m_Layer: 0
   m_Name: New Sprite (6)
-  m_TagString: Untagged
+  m_TagString: breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
